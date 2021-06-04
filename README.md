@@ -34,10 +34,15 @@ pip install -e .
 
 ## Compute Results
 
-1. Train domain adaptation method by calling:
+1. Train domain adaptation method with balancing principle by calling the `bp` configs:
 
 ```bash
-CUDA_VISIBLE_DEVICES=<device-id> PYTHONPATH=. python scripts/train.py --config configs/<your-config>.json
+CUDA_VISIBLE_DEVICES=<device-id> PYTHONPATH=. python scripts/train.py --config configs/<your-bp-config>.json
+```
+
+e.g.
+```bash
+CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python scripts/train.py --config configs/config.minidomainnet_bp_cmd.json.json
 ```
 
 2. Evaluate results
