@@ -40,7 +40,7 @@ CUDA_VISIBLE_DEVICES=<device-id> PYTHONPATH=. python scripts/train.py --config c
 # running a CMD experiment with BP
 CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python scripts/train.py --config configs/config.minidomainnet_bp_cmd.json.json
 # running a MMD experiment with BP
-CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python scripts/train.py --config configs/config.minidomainnet_bp_cmd.json.json
+CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python scripts/train.py --config configs/config.minidomainnet_bp_mmd.json.json
 ```
 
 2. Evaluate results
