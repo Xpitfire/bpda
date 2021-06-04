@@ -9,12 +9,10 @@ Regularization parameters in inverse problems can be chosen by the fundamental p
 ## Installing
 
 1. Clone repository
-
 ```bash
-git clone <our-repo-link>
+git clone https://anonymous.4open.science/r/bpda-1D3D
 cd bpda-1D3D
 ```
-
 
 2. Create a python 3 conda environment
 ```bash
@@ -35,20 +33,18 @@ pip install -e .
 ## Compute Results
 
 1. Train domain adaptation method with balancing principle by calling the `bp` configs:
-
 ```bash
 CUDA_VISIBLE_DEVICES=<device-id> PYTHONPATH=. python scripts/train.py --config configs/<your-bp-config>.json
 ```
-
-e.g.
 ```bash
+# running a CMD experiment with BP
+CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python scripts/train.py --config configs/config.minidomainnet_bp_cmd.json.json
+# running a MMD experiment with BP
 CUDA_VISIBLE_DEVICES=0 PYTHONPATH=. python scripts/train.py --config configs/config.minidomainnet_bp_cmd.json.json
 ```
 
 2. Evaluate results
-
 Set the respective `base_dir` and `method` setting in the `viz/results_extractor_MiniDomainNet.py` file and run:
-
 ```bash
 PYTHONPATH=. python viz/results_extractor_MiniDomainNet.py
 ```
