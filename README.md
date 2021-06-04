@@ -11,7 +11,7 @@ Regularization parameters in inverse problems can be chosen by the fundamental \
 1. Clone repository
 
 ```bash
-git clone https://anonymous.4open.science/r/bpda-1D3D
+git clone <our-repo-link>
 cd bpda-1D3D
 ```
 
