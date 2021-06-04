@@ -1,0 +1,108 @@
+{
+    "debug": false,
+    "device": null,
+    "approach": {
+        "module": "approaches/dn.py",
+        "lambda_": 0.1,
+        "gamma_": 1.1
+    },
+    "model": {
+        "module": "models/mlp_dn.py",
+        "classname-help": "MLP",
+        "classname": "MLP",
+        "MLP": {
+            "n_hidden": 1024,
+            "n_layers": 2,
+            "activation": "relu",
+            "dropout": 0.5
+        }
+    },
+    "backbone": {
+        "model": "resnet18",
+        "pretrained": true,
+        "pretraining_dataset": "imagenet",
+        "feature_layer": "layer4",
+        "apply_avgpool": true,
+        "avgpool": [1, 1],
+        "trainable": false
+    },
+    "trainer": {
+        "experiment_name": "minidomainnet_cmd_resnet_pretrain_freeze_backbone_2hidden_1024units_batchnorm_adam",
+        "checkpoint_dir": "tmp/",
+        "tensorboard_dir": "runs/",
+        "code_backup_filename": "code.zip",
+        "epochs": 100,
+        "batchsize": 128,
+        "min_epochs": 9999, 
+        "early_stopping_patience": 20,
+        "save_interval": 5,
+        "apply_gradient_norm": true,
+        "max_gradient_norm": 2.0,
+        "use_mixed_precission": false,
+        "optimizer_file": "misc/optimizer.py",
+        "optimizer-help": "SGD|Adam",
+        "optimizer": "Adam",
+        "Adam": {
+            "lr": 0.001,
+            "beta1": 0.9,
+            "beta2": 0.999,
+            "weight_decay": 0.0,
+            "scheduler-help": "None|MultiStepLR|ReduceLROnPlateau",
+            "scheduler": "MultiStepLR",
+            "MultiStepLR": {
+                "milestones": [15, 35],
+                "gamma": 0.5
+            }
+        },
+        "criterion_file": "misc/losses.py",
+        "criterion-help": "source_only|domain_adversarial",
+        "criterion": "cmd",
+        "metric_file": "misc/metrics.py",
+        "metric-help": "accuracy|domain_adversarial_accuracy",
+        "metric": "cmd",
+        "cmd": { "moments": 3 },
+        "mmd": { "sigma": 0.1 }
+    },
+    "dataloader": {
+        "module": "dataloaders/minidomainnet.py",
+        "funcname": "create_combined_source_domain_adaptation_data",
+        "dataset-help": "DomainNet",
+        "dataset": "DomainNet",
+        "DomainNet": {
+            "full_data_in_memory": true,
+            "reset_and_reload_memory": true,
+            "num_classes": 5,
+            "selected_classes": [281, 278,  91, 131, 322],
+            "num_workers": 8,
+            "data_root": "data/MiniDomainNet",
+            "image_size": 256,
+            "crop": 244,
+            "color_jitter_factor": 0.25,
+            "rotation_degrees": 2,
+            "scale": [0.7, 1.0],
+            "test_dir": "test",
+            "train_dir": "train",
+            "data_dir": "data",
+            "domains": ["clipart", "infograph", "painting", "quickdraw", "real", "sketch"],
+            "symmetric_permutation_experiments": true,
+            "clipart_data_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/groundtruth/clipart.zip",
+            "clipart_train_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/clipart_train.txt",
+            "clipart_test_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/clipart_test.txt",
+            "infograph_data_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/infograph.zip",
+            "infograph_train_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/infograph_train.txt",
+            "infograph_test_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/infograph_test.txt",
+            "painting_data_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/groundtruth/painting.zip",
+            "painting_train_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/painting_train.txt",
+            "painting_test_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/painting_test.txt",
+            "quickdraw_data_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/quickdraw.zip",
+            "quickdraw_train_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/quickdraw_train.txt",
+            "quickdraw_test_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/quickdraw_test.txt",
+            "real_data_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/real.zip",
+            "real_train_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/real_train.txt",
+            "real_test_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/real_test.txt",
+            "sketch_data_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/sketch.zip",
+            "sketch_train_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/sketch_train.txt",
+            "sketch_test_url": "http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/sketch_test.txt"
+        }
+    }
+}

@@ -1,0 +1,1 @@
+from losses.domain_adaptation import F_cmd_loss, F_mmd_loss
