@@ -11,8 +11,8 @@ Regularization parameters in inverse problems can be chosen by the fundamental p
 
 1. Clone repository
 ```bash
-git clone https://anonymous.4open.science/r/bpda-1D3D
-cd bpda-1D3D
+git clone https://github.com/Xpitfire/bpda
+cd bpda
 ```
 
 2. Create a python 3 conda environment
