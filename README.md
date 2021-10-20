@@ -56,3 +56,13 @@ PYTHONPATH=. python viz/results_extractor_MiniDomainNet.py
 * [Amazon product data](https://jmcauley.ucsd.edu/data/amazon/)
 * [Unsupervised Domain Adaptation by Backpropagation](https://github.com/fungtion/DANN)
 * [Towards Accurate Model Selection in Deep Unsupervised Domain Adaptation](https://github.com/thuml/Deep-Embedded-Validation)
+
+
+```latex
+@article{Zellinger:21,
+  title={The balancing principle for parameter choice in distance-regularized domain adaptation},
+  author={Werner Zellinger and Natalia Shepeleva and Marius-Constantin Dinu and Hamid Eghbal-zadeh and Ho\'an Nguyen Duc and Bernhard Nessler and Sergei V.~Pereverzyev and Bernhard A. Moser},
+  journal={NeurIPS},
+  year={2021}
+}
+```
