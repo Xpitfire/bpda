@@ -1,4 +1,4 @@
-![alt text](https://github.com/Xpitfire/bpda/blob/master/figures/monotonicity.jpg "Logo Title Text 1")
+![alt text](https://github.com/Xpitfire/bpda/blob/master/figures/balancing_principle.png "Logo Title Text 1")
 
 # Blancing Principle for Domain Adaptation
 
