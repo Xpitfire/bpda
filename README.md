@@ -1,5 +1,7 @@
 # Blancing Principle for Domain Adaptation
 
+## [NeurIPS Paper](https://papers.nips.cc/paper/2021/hash/ae0909a324fb2530e205e52d40266418-Abstract.html)
+
 ![alt text](https://github.com/Xpitfire/bpda/blob/master/figures/balancing_principle.jpg "Logo Title Text 1")
 
 ## Abstract
