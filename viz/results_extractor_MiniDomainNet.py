@@ -144,7 +144,7 @@ def predict(probs, dim=1):
 
 def get_weight(s_val_preds, s_N, t_N):
     probs = softmax(s_val_preds)
-    return probs[:, :1] / (probs[:, 1:] + 1e-10) * s_N * 1.0 / t_N
+    return probs[:, 1:] / (probs[:, :1] + 1e-10) * s_N * 1.0 / t_N
 
 
 def get_dev_risk(weight, error):
